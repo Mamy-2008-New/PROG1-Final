@@ -6,55 +6,45 @@ export function generateStatsPage() {
     const authorCounts = {};
 
     articles.forEach(art => {
-        const words = countWords(art.content);
-        totalWords += words;
-
+        totalWords += countWords(art.content);
         authorCounts[art.author] = (authorCounts[art.author] || 0) + 1;
     });
 
     const avgWords = (totalWords / articles.length).toFixed(2);
-
     const topAuthor = Object.keys(authorCounts).reduce((a, b) => authorCounts[a] > authorCounts[b] ? a : b);
 
-    const htmlContent = `
-        <h1>Statistiques du Blog</h1>
-        <div class="stats-box">
-            <p><strong>Total de mots :</strong> ${totalWords}</p>
-            <p><strong>Moyenne de mots par article :</strong> ${avgWords}</p>
-            <p><strong>Auteur le plus actif :</strong> ${topAuthor} (${authorCounts[topAuthor]} articles)</p>
+    return `
+        <div class="card">
+            <h1>📊 Statistiques</h1>
+            <div class="stats-box">
+                <div class="stat-item"><strong>Total mots</strong><br>${totalWords}</div>
+                <div class="stat-item"><strong>Moyenne/Art.</strong><br>${avgWords}</div>
+                <div class="stat-item"><strong>Articles</strong><br>${articles.length}</div>
+                <div class="stat-item"><strong>Top Auteur</strong><br>${topAuthor}</div>
+            </div>
         </div>
     `;
-    return htmlContent;
 }
 
 export function generateArchivesPage() {
-    let listHTML = "<h1>Archives des articles</h1><ul>";
-    
+    let html = `<div class="card"><h1>📚 Archives</h1><ul>`;
     articles.forEach(art => {
-        const wordCount = countWords(art.content);
         const slug = slugify(art.title);
-        listHTML += `
-            <li>
-                [${art.date}] <a href="article-${slug}.html">${art.title}</a> 
-                (${wordCount} mots)
-            </li>`;
+        html += `<li>[${art.date}] <a href="article-${slug}.html">${art.title}</a> (${countWords(art.content)} mots)</li>`;
     });
-
-    listHTML += "</ul>";
-    return listHTML;
+    html += `</ul></div>`;
+    return html;
 }
 
 export function generateArticlePage(article) {
     return `
-        <article>
+        <div class="card">
             <h1>${article.title}</h1>
             <p><em>Par ${article.author}, le ${article.date}</em></p>
-            <div style="margin: 20px 0;">
-                <img src="data:image/png;base64,${article.image}" alt="${article.title}" style="max-width: 100%; height: auto;">
-            </div>
+            <img src="data:image/png;base64,${article.image}" alt="${article.title}">
             <p>${article.content}</p>
             <hr>
             <a href="archives.html">← Retour aux archives</a>
-        </article>
+        </div>
     `;
 }
