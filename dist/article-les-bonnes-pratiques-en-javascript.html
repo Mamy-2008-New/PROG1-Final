@@ -1,54 +1,36 @@
-
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <title>[UTILISER LA VARIABLE title ICI]</title>
-
+    <title>Les bonnes pratiques en JavaScript</title>
     <style>
-
         body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f4f7f6; }
-
         nav { background: #2c3e50; padding: 15px; border-radius: 8px; margin-bottom: 30px; display: flex; gap: 20px; }
-
         nav a { color: white; text-decoration: none; font-weight: bold; }
-
         nav a:hover { text-decoration: underline; }
-
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
-
         .stats-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-
         .stat-item { background: #e8f4fd; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.2em; }
-
         footer { text-align: center; margin-top: 50px; color: #7f8c8d; font-size: 0.9em; }
-
+        img { max-width: 100%; height: auto; border-radius: 4px; display: block; margin: 20px 0; }
     </style>
-
 </head>
-
 <body>
-
     <nav>
-
         <a href="index.html">🏠 Accueil</a>
-
         <a href="archives.html">📚 Archives</a>
-
         <a href="stats.html">📊 Stats</a>
-
         <a href="a-propos.html">ℹ️ À Propos</a>
-
     </nav>
-
-    <main>[UTILISER LA VARIABLE content ICI]</main>
-
+    <main>
+        <div class="card">
+            <h1>Les bonnes pratiques en JavaScript</h1>
+            <p><em>Par Alice Développeuse, le 2026-04-01</em></p>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P8/AwAI/wP+Xh3Z0QAAAABJRU5ErkJggg==" alt="Les bonnes pratiques en JavaScript">
+            <p>Adopter de bonnes pratiques en JavaScript est essentiel pour écrire du code maintenable. Cela inclut l’utilisation de noms de variables explicites, la structuration du code et la gestion des erreurs. Il est également important d’éviter la duplication de code. Les fonctions doivent être courtes et avoir une seule responsabilité. L’utilisation de modules permet de mieux organiser le projet. Le respect des conventions de codage facilite la collaboration. De plus, il est recommandé d’utiliser des outils comme ESLint. Ils permettent de détecter les erreurs et d’améliorer la qualité du code. Les tests sont également importants pour garantir le bon fonctionnement. Enfin, il ne faut pas négliger la documentation. Un code bien documenté est plus facile à comprendre et à maintenir. Ces bonnes pratiques sont essentielles pour tout développeur sérieux.</p>
+            <hr>
+            <a href="archives.html">← Retour aux archives</a>
+        </div></main> 
     <footer>Propulsé par Node.js - Examen final PROG1 avril 2026</footer>
-
 </body>
-
 </html>
