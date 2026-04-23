@@ -1,0 +1,13 @@
+{
+  "name": "generateur-site-statique",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "build": "node app.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "TesliGame",
+  "license": "ISC"
+}
